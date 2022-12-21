@@ -44,11 +44,7 @@
 			<p>hendrerit in vulputate velit esse molestie consequat, vel illum dolore</p>
 			<div class="close_but"><i class="close1"> </i></div>
 				<ul id="flexiselDemo3">
-				<li><a href="{{ path('single')}}"><img src="images/board1.jpg" /></a></li>
-				<li><a href="{{ path('single')}}"><img src="images/board2.jpg" /></a></li>
-				<li><a href="{{ path('single')}}"><img src="images/board3.jpg" /></a></li>
-				<li><a href="{{ path('single')}}"><img src="images/board4.jpg" /></a></li>
-				<li><a href="{{ path('single')}}"><img src="images/board5.jpg" /></a></li>
+          {{ render(controller('App\\Controller\\PageController::photoProductTemplate')) }}
 			</ul>
 		<h3>SnowBoard Extreme Series</h3>
 			<script type="text/javascript">

@@ -78,5 +78,12 @@ class PageController extends AbstractController
         $product = $repository->findAll();
         return $this->render('partials/_product.html.twig',compact('product'));
     }
+
+    public function photoProductTemplate(ManagerRegistry $doctrine): Response
+    {
+        $repository = $doctrine->getRepository(Product::class);
+        $product = $repository->findAll();
+        return $this->render('partials/_photoProduct.html.twig',compact('product'));
+    }
 }
 
