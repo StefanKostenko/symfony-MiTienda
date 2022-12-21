@@ -1,5 +1,5 @@
 {% for oneProduct in product %}
-<div class="col-md-3 shop_box" style="margin-bottom: 10px"><a href="{{ path('single')}}">
+<div class="col-md-3 shop_box" style="margin-bottom: 10px"><a href="{{ path('single', {'id': oneProduct.id})}}">
     <img src="{{ asset('images/' ~ oneProduct.photo) }}" class="img-responsive" style="display: block; width: 100%; max-width: 200px; margin: 0 auto;" alt=""/>
     <span class="new-box">
         <span class="new-label">New</span>

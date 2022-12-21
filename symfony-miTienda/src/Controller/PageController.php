@@ -8,6 +8,9 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Repository\ProductRepository;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class PageController extends AbstractController
 {
@@ -54,9 +57,16 @@ class PageController extends AbstractController
     }
 
     #[Route('/single', name: 'single')]
-    public function single(ManagerRegistry $doctrine): Response
+    public function single(ManagerRegistry $doctrine, SessionInterface $session, ProductRepository $productRepository, RequestStack $requestStack): Response
     {
-        return $this->render('page/single.html.twig', []);
+        $request = $requestStack->getCurrentRequest();        
+        $id = $request->get('id');
+        $session->set('product_id', $id);
+
+        $id = $session->get('product_id');
+        $product = $productRepository->find($id);
+
+        return $this->render('page/single.html.twig', ['product' => $product]);
     }
 
     #[Route('/team', name: 'team')]
