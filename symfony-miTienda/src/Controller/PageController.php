@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Experiance;
+use App\Entity\Product;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -71,5 +72,11 @@ class PageController extends AbstractController
         return $this->render('partials/_experiance.html.twig',compact('experiance'));
     }
 
+    public function productTemplate(ManagerRegistry $doctrine): Response
+    {
+        $repository = $doctrine->getRepository(Product::class);
+        $product = $repository->findAll();
+        return $this->render('partials/_product.html.twig',compact('product'));
+    }
 }
 

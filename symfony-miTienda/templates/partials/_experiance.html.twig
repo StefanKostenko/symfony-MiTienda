@@ -1,8 +1,8 @@
 {% for oneExperiance in experiance %}
-<div class="col-6 col-md-4 team1">
+<div class="col-6 col-md-4 team1" style="margin-bottom: 10px">
   <div class="img_section magnifier2">
     <a class="fancybox" href="{{ asset('images/' ~ oneExperiance.photo)}}" data-fancybox-group="gallery" title="{{ oneExperiance.name }}">
-      <img src="{{ asset('images/' ~ oneExperiance.photo)}}" class="img-responsive" alt=""><span> </span>
+      <img src="{{ asset('images/' ~ oneExperiance.photo)}}" class="img-responsive" style="display: block; width: 100%; margin: 0 auto;" alt=""><span> </span>
       <div class="img_section_txt">
         {{ oneExperiance.name }}
       </div>

@@ -1,0 +1,18 @@
+{% for oneProduct in product %}
+<div class="col-md-3 shop_box" style="margin-bottom: 10px"><a href="{{ path('single')}}">
+    <img src="{{ asset('images/' ~ oneProduct.photo) }}" class="img-responsive" style="display: block; width: 100%; max-width: 200px; margin: 0 auto;" alt=""/>
+    <span class="new-box">
+        <span class="new-label">New</span>
+    </span>
+    <div class="shop_desc">
+        <h3><a href="#">{{ oneProduct.name }}</a></h3>
+        <p>{{ oneProduct.description }}</p>
+        <span class="actual">{{ oneProduct.price }}€</span><br>
+        <ul class="buttons">
+            <li class="cart"><a href="#">Add To Cart</a></li>
+            <li class="shop_btn"><a href="#">Read More</a></li>
+            <div class="clear"> </div>
+        </ul>
+    </div>
+</a></div>
+{% endfor %}
