@@ -4,9 +4,17 @@
      <div class="main">
       <div class="shop_top">
 		<div class="container">
+
+		{% if items %}
+			{% for item in items %}
+                {{ include ('partials/_item.html.twig', {'item' : item}) }}
+            {% endfor %}
+		{% else %}
 			<h4 class="title">Shopping cart is empty</h4>
 			<p class="cart">You have no items in your shopping cart.<br>Click<a href="{{ path('index')}}"> here</a> to continue shopping</p>
-	     </div>
+	    {% endif %}
+		
+		 </div>
 	   </div>
 	  </div>
 {% endblock %}

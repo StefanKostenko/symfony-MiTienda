@@ -20,11 +20,6 @@ class PageController extends AbstractController
         return $this->render('page/index.html.twig', []);
     }
 
-    #[Route('/checkout', name: 'checkout')]
-    public function checkout(ManagerRegistry $doctrine): Response
-    {
-        return $this->render('page/checkout.html.twig', []);
-    }
 
     #[Route('/contact', name: 'contact')]
     public function contact(ManagerRegistry $doctrine): Response
