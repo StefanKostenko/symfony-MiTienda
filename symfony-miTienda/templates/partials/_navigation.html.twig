@@ -44,9 +44,19 @@
 						  		<a href="#"><img src="images/close_edit.png" alt=""/></a>
 						  </div>
 						   <div class="clear"></div>
-						  <li class="list_img"><img src="images/4.jpg" alt="" width="50" height="50"/></li>
-						  <li class="list_desc"><h4><a href="#">velit esse molestie</a></h4><span class="actual">1 x
-                          $12.00</span></li>
+						   
+							{% for item in cart.productCart %}
+								<div class="blog-item mb-5" id="item-{{item.id}}">
+									<li class="list_img"><img src="{{ asset('images/' ~ item.photo) }}" alt="" width="50" height="50"/></li>
+									<li class="list_desc"><h4><a href="#">{{ item.name }}</a></h4><span class="actual">Quantity: {{cart.getCart[item.id]}}
+									<a href="" data-id="{{item.id}}" class="remove-item btn btn-primary py-2 px-4">Remove from cart</a>
+									${{ item.price * cart.getCart[item.id] }} </span></li>
+								</div>
+
+            				{% endfor %}
+
+							<h3>Total: <span id="totalCart">{{cart.totalCart}}</span></h3>
+
 						  <div class="login_buttons">
 							 <div class="check_button"><a href="{{ path('cart')}}">Check out</a></div>
 							 <div class="login_button"><a href="{{ path('login')}}">Login</a></div>

@@ -23,6 +23,7 @@ class CartController extends AbstractController
         $this->repository = $doctrine->getRepository(Product::class);
         $this->cart = $cart;
     }
+  
     #[Route('/', name: 'cart')]
     public function index(): Response
     {
@@ -44,14 +45,14 @@ class CartController extends AbstractController
     
         return $this->render('page/checkout.html.twig', ['items' => $items, 'totalCart' => $totalCart]);
     }
-    #[Route('/add/{id}', name: 'cart_add', methods: ['GET', 'POST'], requirements: ['id' => '\d+'])]
-    public function cart_add(int $id): Response
+    #[Route('/add/{id}/quantity/{quantity}', name: 'cart_add', methods: ['GET', 'POST'], requirements: ['id' => '\d+'])]
+    public function cart_add(int $id, int $quantity): Response
     {
         $product = $this->repository->find($id);
         if (!$product)
             return new JsonResponse("[]", Response::HTTP_NOT_FOUND);
-        
-        $this->cart->add($id, 1);
+
+        $this->cart->add($id, $quantity);
         
         $data = [
             "id"=> $product->getId(),

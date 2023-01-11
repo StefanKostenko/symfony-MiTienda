@@ -19,11 +19,12 @@
 
   const cartModal = $("#cart-modal");
   $( "button.open-cart-product" ).click(function(event) {
+    let quantity = $("#quantity").val();
     event.preventDefault();
     const id = $( this ).attr('data-id');
-    const href = `/cart/add/${id}`;
+    const href = `/cart/add/${id}/quantity/${quantity}`;
     $.get( href, function(data) {       
-      document.location.href = "/cart";     
+      document.location.href = "/shop";     
     })
   });
   $(".closeCart").click(function (e) {
