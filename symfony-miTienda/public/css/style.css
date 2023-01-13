@@ -457,7 +457,7 @@ li.list_desc h4 a:hover{
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
 	background: #000;
-	margin:10px 0 0;
+	margin:10px 2px 0;
 }
 .check_button a:hover{
 	background:#555;

@@ -59,7 +59,12 @@
 
 						  <div class="login_buttons">
 							 <div class="check_button"><a href="{{ path('cart')}}">Check out</a></div>
-							 <div class="login_button"><a href="{{ path('login')}}">Login</a></div>
+							{% if app.user %}
+								<div class="check_button"><a href="{{ path('app_logout') }}"> {{ app.user.name }} - Logout</a></div>
+							{% else %}
+								<div class=" check_button" , "{{ (app.request.attributes.get('_route') == 'login')  ? 'active': ''}} lien"><a href="{{ path('login') }}"> Login</a></div>
+								<div class=" check_button" , "{{ (app.request.attributes.get('_route') == 'register')  ? 'active': ''}} "><a href="{{ path('register') }}"> Register</a></div>
+							{% endif %}
 							 <div class="clear"></div>
 						  </div>
 						  <div class="clear"></div>

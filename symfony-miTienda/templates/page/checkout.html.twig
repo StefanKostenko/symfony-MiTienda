@@ -9,11 +9,11 @@
 			{% for item in items %}
                 {{ include ('partials/_item.html.twig', {'item' : item}) }}
             {% endfor %}
+				<h3>Total: <span id="totalCart">{{cart.totalCart}}</span></h3>
 		{% else %}
 			<h4 class="title">Shopping cart is empty</h4>
 			<p class="cart">You have no items in your shopping cart.<br>Click<a href="{{ path('index')}}"> here</a> to continue shopping</p>
 	    {% endif %}
-		
 		 </div>
 	   </div>
 	  </div>

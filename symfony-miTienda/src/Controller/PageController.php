@@ -33,18 +33,6 @@ class PageController extends AbstractController
         return $this->render('page/experiance.html.twig', []);
     }
 
-    #[Route('/login', name: 'login')]
-    public function login(ManagerRegistry $doctrine): Response
-    {
-        return $this->render('page/login.html.twig', []);
-    }
-
-    #[Route('/register', name: 'register')]
-    public function register(ManagerRegistry $doctrine): Response
-    {
-        return $this->render('page/register.html.twig', []);
-    }
-
     #[Route('/shop', name: 'shop')]
     public function shop(ManagerRegistry $doctrine): Response
     {
